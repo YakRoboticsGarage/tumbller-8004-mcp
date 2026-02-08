@@ -1,0 +1,14 @@
+[project]
+name = "tumbller-agent"
+version = "0.1.0"
+description = "Register a physical robot as an on-chain AI agent via ERC-8004 and MCP"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "agent0-sdk>=1.5.2",
+    "fastmcp>=2.14.5",
+    "httpx>=0.28.1",
+    "pyngrok>=7.5.0",
+    "python-dotenv>=1.2.1",
+    "web3>=7.14.1",
+]
