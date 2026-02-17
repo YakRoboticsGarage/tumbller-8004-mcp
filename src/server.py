@@ -53,7 +53,13 @@ async def get_temperature_humidity() -> dict:
 
 if __name__ == "__main__":
     port = 8000
+    for arg in sys.argv:
+        if arg.startswith("--port="):
+            port = int(arg.split("=", 1)[1])
     if "--ngrok" in sys.argv:
         from tunnel import start_tunnel
         start_tunnel(port)
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
+    try:
+        mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
+    except KeyboardInterrupt:
+        print("\nShutting down.")
